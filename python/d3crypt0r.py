@@ -69,12 +69,13 @@ def checker(cipher,ptxt):
             print(f"NOT SAME! CAUGHT AT {i}")
             return
 
-k = gen_key()
-ptxt1 = gen_random_plaintxt()
-ptxt2 = gen_random_plaintxt()
-cipher1 = encrypt(ptxt1,k)
-cipher2 = encrypt(ptxt2,k)
-checker(cipher1,ptxt2)
+if __name__=="__main__":
+    k = gen_key()
+    ptxt1 = gen_random_plaintxt()
+    ptxt2 = gen_random_plaintxt()
+    cipher1 = encrypt(ptxt1,k)
+    cipher2 = encrypt(ptxt2,k)
+    checker(cipher1,ptxt2)
 
 
 # k = gen_key()
