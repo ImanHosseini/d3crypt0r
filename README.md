@@ -4,8 +4,10 @@
       src="https://github.com/ImanHosseini/DeCry/raw/master/logo/d3c.png"
       width="240"
     />
-  </a>
 </p>
+
+<br>
+
 # d3crypt0r
 Project I for Crypto Course <br>
 Iman Hosseini - Karthik Venkatesh <br>
