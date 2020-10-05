@@ -7,8 +7,6 @@
 </p>
 
 <br>
-
-# d3crypt0r
 Project I for Crypto Course <br>
 Iman Hosseini - Karthik Venkatesh <br>
 For technical report see the /report directory. <br>
