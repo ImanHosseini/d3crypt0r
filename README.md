@@ -11,6 +11,6 @@ Project I for Crypto Course <br>
 Iman Hosseini - Karthik Venkatesh <br>
 For technical report see the /report directory. <br>
 
-# Rough outline
+# Timeline
 9/17: There is a python implementation of the algorithm (encryption and decryption) plus some starter cpp code <br>
 10/5: Everything is done, only finishing up on the report.
