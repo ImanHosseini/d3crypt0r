@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:viz="http://www.gexf.net/1.1draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+    <graph>
+        <nodes>
+            <node id="a" label="glossy">
+                <viz:color r="255"/>
+                <viz:shape value="disc"/>
+            </node>
+             <node id="b" label="glossy">
+                <viz:color b="255"/>
+                <viz:shape value="disc"/>
+            </node>
+              <node id="x" label="glossy">
+                <viz:color r="180" g="180" b="180"/>
+                <viz:shape value="disc"/>
+            </node>
+        </nodes>
+        <edges>
+            <edge source="a" target="b">
+            <viz:color r="0" g="0" b="0" />
+            </edge>
+        </edges>
+    </graph>
+</gexf>
