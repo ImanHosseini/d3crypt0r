@@ -36,31 +36,73 @@ def is_addmissible(cipher,ptxt):
             return False
     return True
 
-pt = gen_random_plaintxt()
+def ad_number(cipher,ptxt):
+    k = dict()
+    ktbl = dict()
+    for a in alphabet:
+        k[a] = set()
+    for i,c in enumerate(cipher):
+        if i>=len(ptxt):
+            return -1
+        pc = ptxt[i]
+        k[pc].add(c)
+        if c not in ktbl:
+            ktbl[c] = pc
+        else:
+            c_map = ktbl[c]
+            if c_map != pc:
+                return i
+        if len(k[pc])>rowlen_d[pc]:
+            return i
+    return -1
+
+pts = [gen_random_plaintxt() for _ in range(40)]
 rkey = gen_key()
-ciph = encrypt(pt,rkey)
+ciphs = [encrypt(x,rkey) for x in pts]
 # analyze(ciph)
-print(rkey)
+ts = []
 
-JWORDS = 7
-words = get_words()
-N = len(words)
-stts = []
-# N = 4
+for i,pl in enumerate(pts):
+    for j,ci in enumerate(ciphs):
+        if i==j:
+            continue
+        ts.append(ad_number(ci,pl))
 
-addmissible_states = []
-for t in range(len(words)**JWORDS):
-    stt = [0 for _ in range(JWORDS)]
-    for j in range(JWORDS):
-        stt[j] = (t//(N**j))%N
-    # print(stt)
-    ptxt = ""
-    for i in range(JWORDS):
-        ptxt+=words[stt[i]]+" "
-    # print(ptxt)
-    if is_addmissible(ciph,ptxt):
-        addmissible_states.append(stt)
-        print(stt)
+import matplotlib.pyplot as plt
+# for x in stats.keys():
+#     plt.hist(stats[x],bins=20,label=x,alpha=0.5)
 
-print(len(addmissible_states))
+# plt.legend()
+# plt.show()
+
+plt.hist(ts,bins = 30)
+plt.legend()
+plt.title('characters consumed until inconsisitency')
+plt.xlabel('characters consumed')
+plt.show()
+
+
+
+
+# JWORDS = 7
+# words = get_words()
+# N = len(words)
+# stts = []
+# # N = 4
+
+# addmissible_states = []
+# for t in range(len(words)**JWORDS):
+#     stt = [0 for _ in range(JWORDS)]
+#     for j in range(JWORDS):
+#         stt[j] = (t//(N**j))%N
+#     # print(stt)
+#     ptxt = ""
+#     for i in range(JWORDS):
+#         ptxt+=words[stt[i]]+" "
+#     # print(ptxt)
+#     if is_addmissible(ciph,ptxt):
+#         addmissible_states.append(stt)
+#         print(stt)
+
+# print(len(addmissible_states))
     

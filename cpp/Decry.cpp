@@ -194,7 +194,7 @@ typedef struct State {
     }
     int advance() {
         bool works = false;
-        bool found = 0;
+        int found = 0;
         // int wdi = 0;
         
         int wdi = wstate[(*wslen)];
@@ -202,7 +202,7 @@ typedef struct State {
         
         while ((!works) & (wdi<WORD_DICT_SIZE)) {
             works = true;
-            //if ((wstate[0] == 26) & (wstate[1] == 24) & /* (wstate[2] == 13) &  (wstate[3] == 12) & */ ((*wslen)==2) & (wdi==13)) {
+            //if ((*wslen==56) & /* (wstate[2] == 13) &  (wstate[3] == 12) & */ (wdi==20)) {
             //    __debugbreak();
             //}
             for (auto ci = 0; ci < wlens[wdi]+1; ci++) {
@@ -221,12 +221,12 @@ typedef struct State {
                     break;
                 }
                 else {
-                    if (ci >= (wlens[wdi] - 1)) {
+                   
                         if ((*plen) == TXT_LEN) {
                             found = true;
                             return 1;
                         }
-                    }
+                    
                 }
             }
             if (works) {
@@ -286,7 +286,7 @@ void decrypt_type2() {
 mutex p_mutex;
 
 void find_th(int tnum, int idx) {
-    int delta = round(WORD_DICT_SIZE / (double)tnum);
+    int delta = WORD_DICT_SIZE / (double)tnum;
 
     int wstate[TXT_LEN] = {};
     int wslen = 0;
@@ -324,10 +324,10 @@ void decrypt_type2_mt(int threads = 16) {
 }
 
 void decrypt_main(int t) {
-    //if (!decrypt_type1(cipher)) {
-    //    // Inconclusive
-    //    cout << "NOT IN PDIC!" << endl;
-    //}
+    if (!decrypt_type1(cipher)) {
+        // Inconclusive
+        // cout << "NOT IN PDIC!" << endl;
+    }
     decrypt_type2_mt(t);
 }
 

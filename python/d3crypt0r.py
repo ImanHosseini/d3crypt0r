@@ -123,22 +123,27 @@ def gen_from_words(k = None, ptxt = None):
 
 import json
 
-if __name__=="__main__":
-    KNUM = 10 
-    MSGNUM = 50
-    keyz = [gen_key() for _ in range(KNUM)]
-    msgz = [gen_random_plaintxt() for _ in range(MSGNUM)]
-    for i,k in enumerate(keyz):
-        open(f"./tests/keys/k_{i}.txt","w").write(json.dumps(k))
-    for i,m in enumerate(msgz):
-        open(f"./tests/msgs/m_{i}.txt","w").write(m)
-    for ki,k in enumerate(keyz):
-        for mi,m in enumerate(msgz):
-            open(f"./tests/ciphers/c_{ki}_{mi}.txt","w").write(gen_from_words(k,m))
+# if __name__=="__main__":
+#     KNUM = 10 
+#     MSGNUM = 50
+#     keyz = [gen_key() for _ in range(KNUM)]
+#     msgz = [gen_random_plaintxt() for _ in range(MSGNUM)]
+#     for i,k in enumerate(keyz):
+#         open(f"./tests/keys/k_{i}.txt","w").write(json.dumps(k))
+#     for i,m in enumerate(msgz):
+#         open(f"./tests/msgs/m_{i}.txt","w").write(m)
+#     for ki,k in enumerate(keyz):
+#         for mi,m in enumerate(msgz):
+#             open(f"./tests/ciphers/c_{ki}_{mi}.txt","w").write(gen_from_words(k,m))
 
-# k = gen_key()
-# ptxt = gen_random_plaintxt()
-# print(ptxt)
-# cipher = encrypt(ptxt,k)
-# decrypt(cipher,k)
+if __name__=="__main__":
+    k = gen_key()
+    ptxt = open("./data/plaintxts.txt","r").readlines()[3][:-1]
+    print(ptxt)
+    cipher = encrypt(ptxt,k)
+    decrypt(cipher,k)
+    print(ptxt)
+    for x in cipher:
+        print(x,end=",")
+    print(f"\n{k}er") 
 
