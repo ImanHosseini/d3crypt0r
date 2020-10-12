@@ -8,7 +8,7 @@
 
 <br>
 Project I for Crypto Course <br>
-Iman Hosseini - Karthik Venkatesh <br>
+Iman Hosseini <br>
 For technical report see the /report directory. <br>
 
 # Instructions
