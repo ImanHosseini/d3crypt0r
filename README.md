@@ -9,7 +9,7 @@
 <br>
 Project I for Crypto Course <br>
 Iman Hosseini <br>
-For technical report see the /report directory. <br>
+For technical report see the /report directory. or [here](https://github.com/ImanHosseini/d3crypt0r/blob/master/report/d3crypt0r.pdf) <br>
 
 # Instructions
 The executables are in Release directory. Python version requires Python 3.7+ and for C++ version try the relevant folder for your architecture and operating system. After executing the binary, input the cipher to stdin. (no space between characters, no more/less characters)
